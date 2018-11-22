@@ -72,7 +72,7 @@ class LoggerBehavior extends Behavior
             if ($entity->isNew()) {
                 $log->action_type = 'INSERT';
             } else {
-                $log->old_data = $diff;
+                $log->old_data = json_encode($diff);
                 $log->action_type = 'UPDATE';
             }
 
