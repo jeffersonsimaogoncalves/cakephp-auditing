@@ -7,12 +7,12 @@ Este plugin faz o papel de coletar as mudanças quando se faz alguma ação de p
 Você pode instalar usando o [composer](http://getcomposer.org).
 
 ```
-composer require alisson-nascimento/cakephp-plugin-auditoria
+composer require jeffersonsimaogoncalves/cakephp-auditing
 ```
 ### Habilitar Plugin
 
 ```
-$ bin/cake plugin load Auditoria
+$ bin/cake plugin load JeffersonSimaoGoncalves/Auditing
 ```
 
 ### Configurar Behavior
@@ -32,7 +32,7 @@ class ExampleTable extends Table
         parent::initialize($config);
 
         // Add the behaviour to your table
-        $this->addBehavior('Auditoria.Logger');
+        $this->addBehavior('JeffersonSimaoGoncalves/Auditing.Logger');
     }
 }
 ```

@@ -48,18 +48,15 @@ class LoggerBehavior extends Behavior
 
             $diff = $entity->extractOriginalChanged(array_keys($data));
 
-            $query = $recordTable->find('all')
-                ->where(['model_pk' => $entity->id, 'model_table' => $class]);
+            $query = $recordTable->find('all')->where(['model_pk' => $entity->id, 'model_table' => $class]);
 
             $record = $query->first();
-
 
             if ($entity->isNew() || is_null($record)) {
                 $record = $recordTable->newEntity();
                 $record->model_table = $class;
                 $record->model_pk = $entity->id;
                 $record->created = date('Y-m-d H:i:s');
-
             }
 
             if ($entity->isNew()) {
@@ -88,13 +85,12 @@ class LoggerBehavior extends Behavior
     {
         $class = get_class($entity);
 
-        if (!in_array($class, ['Auditotia\\Model\\Entity\\AuditingRecord', 'Auditotia\\Model\\Entity\\AuditingLog'])) {
+        if (!in_array($class, ['JeffersonSimaoGoncalves\\Auditing\\Model\\Entity\\AuditingRecord', 'JeffersonSimaoGoncalves\\Auditing\\Model\\Entity\\AuditingLog'])) {
             $recordTable = TableRegistry::getTableLocator()->get('JeffersonSimaoGoncalves/Auditing.AuditingRecords');
             $logTable = TableRegistry::getTableLocator()->get('JeffersonSimaoGoncalves/Auditing.AuditingLogs');
             $log = $logTable->newEntity();
 
-            $query = $recordTable->find('all')
-                ->where(['model_pk' => $entity->id, 'model_table' => $class]);
+            $query = $recordTable->find('all')->where(['model_pk' => $entity->id, 'model_table' => $class]);
 
             $record = $query->first();
 
