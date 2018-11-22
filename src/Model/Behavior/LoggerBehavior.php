@@ -56,7 +56,6 @@ class LoggerBehavior extends Behavior
 
             if ($entity->isNew() || is_null($record)) {
                 $record = $recordTable->newEntity();
-
                 $record->model_table = $class;
                 $record->model_pk = $entity->id;
                 $record->created = date('Y-m-d H:i:s');

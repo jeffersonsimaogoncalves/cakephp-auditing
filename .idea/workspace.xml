@@ -2,30 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="672a9986-9f92-476f-a5a5-f3ab7718f712" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/bootstrap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/Migrations/20181022182857_Initial.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/Migrations/20181022182857_Initial.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AppController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AuditoriaRegistrosController.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Behavior/LoggerBehavior.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Behavior/LoggerBehavior.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Entity/AuditoriaLog.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Entity/AuditingLog.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Entity/AuditoriaRegistro.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Entity/AuditingRecord.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Table/AuditoriaLogsTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Table/AuditingLogsTable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Table/AuditoriaRegistrosTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Table/AuditingRecordsTable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Plugin.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Plugin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Template/AuditoriaRegistros/index.ctp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Template/AuditoriaRegistros/view.ctp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Fixture/AuditoriaLogsFixture.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Fixture/AuditoriaRegistrosFixture.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/TestCase/Controller/AuditoriaRegistrosControllerTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/TestCase/Model/Table/AuditoriaLogsTableTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/TestCase/Model/Table/AuditoriaRegistrosTableTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/bootstrap.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webroot/empty" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -101,8 +78,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Model/Behavior/LoggerBehavior.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="101" column="39" selection-start-line="101" selection-start-column="39" selection-end-line="101" selection-end-column="39" />
+            <state relative-caret-position="102">
+              <caret line="57" column="52" selection-start-line="57" selection-start-column="52" selection-end-line="57" selection-end-column="52" />
               <folding>
                 <element signature="e#67#88#0#PHP" expanded="true" />
               </folding>
@@ -252,12 +229,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1542890299600</updated>
-      <workItem from="1542890300913" duration="2266000" />
+      <workItem from="1542890300913" duration="2393000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2266000" />
+    <option name="totallyTimeSpent" value="2393000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1010" extended-state="6" />
@@ -397,8 +374,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Behavior/LoggerBehavior.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="101" column="39" selection-start-line="101" selection-start-column="39" selection-end-line="101" selection-end-column="39" />
+        <state relative-caret-position="102">
+          <caret line="57" column="52" selection-start-line="57" selection-start-column="52" selection-end-line="57" selection-end-column="52" />
           <folding>
             <element signature="e#67#88#0#PHP" expanded="true" />
           </folding>
