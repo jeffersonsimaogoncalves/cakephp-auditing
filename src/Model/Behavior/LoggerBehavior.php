@@ -3,6 +3,7 @@
 namespace JeffersonSimaoGoncalves\Auditing\Model\Behavior;
 
 use Cake\Event\Event;
+use Cake\I18n\Time;
 use Cake\ORM\Behavior;
 use Cake\ORM\Entity;
 use Cake\ORM\TableRegistry;
@@ -43,7 +44,7 @@ class LoggerBehavior extends Behavior
             $logTable = TableRegistry::getTableLocator()->get('JeffersonSimaoGoncalves/Auditing.AuditingLogs');
             $log = $logTable->newEntity();
 
-            $data = Router::getRequest()->getData();
+            $data = Router::getRequest(true)->getData();
             unset($data['_save']);
             if (empty($data)) {
                 $data = $entity->toArray();
@@ -71,7 +72,7 @@ class LoggerBehavior extends Behavior
             if ($entity->isNew()) {
                 $log->action_type = 'INSERT';
             } else {
-                $log->old_data = json_encode($diff);
+                $log->old_data = $diff;
                 $log->action_type = 'UPDATE';
             }
 
@@ -95,7 +96,11 @@ class LoggerBehavior extends Behavior
         $class = get_class($entity);
 
         if (!in_array($class, ['JeffersonSimaoGoncalves\\Auditing\\Model\\Entity\\AuditingRecord', 'JeffersonSimaoGoncalves\\Auditing\\Model\\Entity\\AuditingLog'])) {
+            TableRegistry::getTableLocator()->remove('JeffersonSimaoGoncalves/Auditing.AuditingRecords');
+            TableRegistry::getTableLocator()->remove('JeffersonSimaoGoncalves/Auditing.AuditingLogs');
+            /** @var \JeffersonSimaoGoncalves\Auditing\Model\Table\AuditingRecordsTable $recordTable */
             $recordTable = TableRegistry::getTableLocator()->get('JeffersonSimaoGoncalves/Auditing.AuditingRecords');
+            /** @var \JeffersonSimaoGoncalves\Auditing\Model\Table\AuditingLogsTable $logTable */
             $logTable = TableRegistry::getTableLocator()->get('JeffersonSimaoGoncalves/Auditing.AuditingLogs');
             $log = $logTable->newEntity();
 
@@ -109,7 +114,7 @@ class LoggerBehavior extends Behavior
             $record = $query->first();
 
             $log->action_type = 'DELETE';
-            $log->created = date('Y-m-d H:i:s');
+            $log->created_by = Time::now();
             $log->auditing_record_id = $record->id;
 
             $logTable->save($log);
