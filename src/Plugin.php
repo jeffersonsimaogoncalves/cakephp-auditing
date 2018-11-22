@@ -1,12 +1,19 @@
 <?php
 
-namespace Auditoria;
+namespace JeffersonSimaoGoncalves\Auditing;
 
 use Cake\Core\BasePlugin;
 
 /**
- * Plugin for Auditoria
+ * Class Plugin
+ *
+ * @author Jefferson Simão Gonçalves <gerson.simao.92@gmail.com>
+ *
+ * @package JeffersonSimaoGoncalves\Auditing
  */
 class Plugin extends BasePlugin
 {
+    protected $middlewareEnabled = false;
+    protected $routesEnabled = false;
+    protected $consoleEnabled = false;
 }

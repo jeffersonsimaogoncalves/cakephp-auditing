@@ -1,17 +1,21 @@
 {
-    "name": "alisson-nascimento/cakephp-plugin-auditoria",
-    "description": "Auditoria plugin for CakePHP",
-    "type": "cakephp-plugin",
-    "license": "MIT",
-    "require": {
-        "cakephp/cakephp": "^3.6"
-    },
-    "autoload": {
-        "psr-4": {
-            "Auditoria\\": "src/"
-        }
-    },
-    "suggest": {
-         "alisson-nascimento/cakephp-theme-adminlte": "Caso queira usar a parte de interface web de auditoria"
+  "name": "jeffersonsimaogoncalves/cakephp-auditing",
+  "description": "Auditoria plugin for CakePHP",
+  "type": "cakephp-plugin",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jefferson Simão Gonçalves",
+      "homepage": "https://github.com/jeffersonsimaogoncalves"
     }
+  ],
+  "require": {
+    "cakephp/cakephp": "^3.6",
+    "ext-json": "@stable"
+  },
+  "autoload": {
+    "psr-4": {
+      "JeffersonSimaoGoncalves\\Auditing\\": "src/"
+    }
+  }
 }

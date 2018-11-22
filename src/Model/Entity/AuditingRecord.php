@@ -1,22 +1,23 @@
 <?php
-namespace Auditoria\Model\Entity;
+
+namespace JeffersonSimaoGoncalves\Auditing\Model\Entity;
 
 use Cake\ORM\Entity;
 
 /**
- * AuditoriaRegistro Entity
+ * AuditingRegistro Entity
  *
  * @property int $id
- * @property string $modelo_table
- * @property int $modelo_pk
+ * @property string $model_table
+ * @property int $model_pk
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $deleted
  * @property int $created_by
  * @property int $updated_by
  *
- * @property \Auditoria\Model\Entity\AuditoriaLog[] $auditoria_logs
+ * @property \JeffersonSimaoGoncalves\Auditing\Model\Entity\AuditingLog[] $auditing_logs
  */
-class AuditoriaRegistro extends Entity
+class AuditingRecord extends Entity
 {
 
     /**
@@ -29,12 +30,12 @@ class AuditoriaRegistro extends Entity
      * @var array
      */
     protected $_accessible = [
-        'modelo_table' => true,
-        'modelo_pk' => true,
-        'created' => true,
-        'deleted' => true,
-        'created_by' => true,
-        'updated_by' => true,
-        'auditoria_logs' => true
+        'model_table'   => true,
+        'model_pk'      => true,
+        'created'       => true,
+        'deleted'       => true,
+        'created_by'    => true,
+        'updated_by'    => true,
+        'auditing_logs' => true,
     ];
 }

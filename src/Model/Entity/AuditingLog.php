@@ -1,21 +1,22 @@
 <?php
-namespace Auditoria\Model\Entity;
+
+namespace JeffersonSimaoGoncalves\Auditing\Model\Entity;
 
 use Cake\ORM\Entity;
 
 /**
- * AuditoriaLog Entity
+ * AuditingLog Entity
  *
  * @property int $id
- * @property int $auditoria_registro_id
- * @property string $tipo_acao
+ * @property int $auditing_record_id
+ * @property string $action_type
  * @property \Cake\I18n\FrozenTime $created
  * @property int $created_by
- * @property string $dados_antigos
+ * @property string $old_data
  *
- * @property \Auditoria\Model\Entity\AuditoriaRegistro $auditoria_registro
+ * @property \JeffersonSimaoGoncalves\Auditing\Model\Entity\AuditingRecord $auditing_record
  */
-class AuditoriaLog extends Entity
+class AuditingLog extends Entity
 {
 
     /**
@@ -28,11 +29,11 @@ class AuditoriaLog extends Entity
      * @var array
      */
     protected $_accessible = [
-        'auditoria_registro_id' => true,
-        'tipo_acao' => true,
-        'created' => true,
-        'created_by' => true,
-        'dados_antigos' => true,
-        'auditoria_registro' => true
+        'auditing_record_id' => true,
+        'action_type'        => true,
+        'created'            => true,
+        'created_by'         => true,
+        'old_data'           => true,
+        'auditing_record'    => true,
     ];
 }

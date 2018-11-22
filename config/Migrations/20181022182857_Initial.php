@@ -1,85 +1,85 @@
 <?php
+
 use Migrations\AbstractMigration;
 
 class Initial extends AbstractMigration
 {
     public function up()
     {
-
-        $this->table('auditoria_logs')
-            ->addColumn('auditoria_registro_id', 'integer', [
+        $this->table('auditing_logs')
+            ->addColumn('auditing_record_id', 'integer', [
                 'default' => null,
-                'limit' => 11,
-                'null' => false,
+                'limit'   => 11,
+                'null'    => false,
             ])
-            ->addColumn('tipo_acao', 'string', [
+            ->addColumn('action_type', 'string', [
                 'default' => null,
-                'limit' => 20,
-                'null' => false,
+                'limit'   => 20,
+                'null'    => false,
             ])
             ->addColumn('created', 'datetime', [
                 'default' => null,
-                'limit' => null,
-                'null' => false,
+                'limit'   => null,
+                'null'    => false,
             ])
             ->addColumn('created_by', 'integer', [
                 'default' => null,
-                'limit' => 11,
-                'null' => true,
+                'limit'   => 11,
+                'null'    => true,
             ])
-            ->addColumn('dados_antigos', 'text', [
+            ->addColumn('old_data', 'text', [
                 'default' => null,
-                'limit' => null,
-                'null' => true,
+                'limit'   => null,
+                'null'    => true,
             ])
             ->addIndex(
                 [
-                    'auditoria_registro_id',
+                    'auditing_record_id',
                 ]
             )
             ->create();
 
-        $this->table('auditoria_registros')
-            ->addColumn('modelo_table', 'string', [
+        $this->table('auditing_records')
+            ->addColumn('model_table', 'string', [
                 'default' => null,
-                'limit' => 100,
-                'null' => false,
+                'limit'   => 100,
+                'null'    => false,
             ])
-            ->addColumn('modelo_pk', 'integer', [
+            ->addColumn('model_pk', 'string', [
                 'default' => null,
-                'limit' => 11,
-                'null' => false,
+                'limit'   => 50,
+                'null'    => false,
             ])
             ->addColumn('created', 'datetime', [
                 'default' => null,
-                'limit' => null,
-                'null' => false,
+                'limit'   => null,
+                'null'    => false,
             ])
             ->addColumn('deleted', 'datetime', [
                 'default' => null,
-                'limit' => null,
-                'null' => true,
+                'limit'   => null,
+                'null'    => true,
             ])
             ->addColumn('created_by', 'integer', [
                 'default' => null,
-                'limit' => 11,
-                'null' => true,
+                'limit'   => 11,
+                'null'    => true,
             ])
             ->addColumn('updated_by', 'integer', [
                 'default' => null,
-                'limit' => 11,
-                'null' => true,
+                'limit'   => 11,
+                'null'    => true,
             ])
             ->create();
 
-        $this->table('auditoria_logs')
+        $this->table('auditing_logs')
             ->addForeignKey(
-                'auditoria_registro_id',
-                'auditoria_registros',
+                'auditing_record_id',
+                'auditing_records',
                 'id',
                 [
                     'update' => 'RESTRICT',
-                    'delete' => 'RESTRICT'
+                    'delete' => 'RESTRICT',
                 ]
             )
             ->update();
@@ -87,12 +87,12 @@ class Initial extends AbstractMigration
 
     public function down()
     {
-        $this->table('auditoria_logs')
+        $this->table('auditing_logs')
             ->dropForeignKey(
-                'auditoria_registro_id'
+                'auditing_record_id'
             )->save();
 
-        $this->table('auditoria_logs')->drop()->save();
-        $this->table('auditoria_registros')->drop()->save();
+        $this->table('auditing_logs')->drop()->save();
+        $this->table('auditing_records')->drop()->save();
     }
 }
