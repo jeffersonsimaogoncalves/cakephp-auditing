@@ -83,6 +83,12 @@ class AuditingRecordsTable extends Table
             ->notEmpty('model_table');
 
         $validator
+            ->scalar('model_database')
+            ->maxLength('model_database', 100)
+            ->requirePresence('model_database', 'create')
+            ->notEmpty('model_database');
+
+        $validator
             ->scalar('model_pk')
             ->maxLength('model_pk', 50)
             ->requirePresence('model_pk', 'create')

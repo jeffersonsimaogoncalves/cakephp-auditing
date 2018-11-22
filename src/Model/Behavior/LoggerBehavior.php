@@ -35,10 +35,13 @@ class LoggerBehavior extends Behavior
         $class = get_class($entity);
 
         if (!in_array($class, ['JeffersonSimaoGoncalves\\Auditing\\Model\\Entity\\AuditingRecord', 'JeffersonSimaoGoncalves\\Auditing\\Entity\\Table\\AuditingLog'])) {
+            TableRegistry::getTableLocator()->remove('JeffersonSimaoGoncalves/Auditing.AuditingRecords');
+            TableRegistry::getTableLocator()->remove('JeffersonSimaoGoncalves/Auditing.AuditingLogs');
+            /** @var \JeffersonSimaoGoncalves\Auditing\Model\Table\AuditingRecordsTable $recordTable */
             $recordTable = TableRegistry::getTableLocator()->get('JeffersonSimaoGoncalves/Auditing.AuditingRecords');
+            /** @var \JeffersonSimaoGoncalves\Auditing\Model\Table\AuditingLogsTable $logTable */
             $logTable = TableRegistry::getTableLocator()->get('JeffersonSimaoGoncalves/Auditing.AuditingLogs');
             $log = $logTable->newEntity();
-
 
             $data = Router::getRequest()->getData();
             unset($data['_save']);
@@ -46,15 +49,21 @@ class LoggerBehavior extends Behavior
                 $data = $entity->toArray();
             }
 
+            $configLog = $recordTable->getConnection()->config();
+            $configEntity = TableRegistry::getTableLocator()->get($entity->getSource())->getConnection()->config();
+
+            $database = isset($configEntity['database']) ? $configEntity['database'] : $configLog['database'];
+
             $diff = $entity->extractOriginalChanged(array_keys($data));
 
-            $query = $recordTable->find('all')->where(['model_pk' => $entity->id, 'model_table' => $class]);
+            $query = $recordTable->find('all')->where(['model_pk' => $entity->id, 'model_database' => $database, 'model_table' => $class]);
 
             $record = $query->first();
 
             if ($entity->isNew() || is_null($record)) {
                 $record = $recordTable->newEntity();
                 $record->model_table = $class;
+                $record->model_database = $database;
                 $record->model_pk = $entity->id;
                 $record->created = date('Y-m-d H:i:s');
             }
@@ -90,7 +99,12 @@ class LoggerBehavior extends Behavior
             $logTable = TableRegistry::getTableLocator()->get('JeffersonSimaoGoncalves/Auditing.AuditingLogs');
             $log = $logTable->newEntity();
 
-            $query = $recordTable->find('all')->where(['model_pk' => $entity->id, 'model_table' => $class]);
+            $configLog = $recordTable->getConnection()->config();
+            $configEntity = TableRegistry::getTableLocator()->get($entity->getSource())->getConnection()->config();
+
+            $database = isset($configEntity['database']) ? $configEntity['database'] : $configLog['database'];
+
+            $query = $recordTable->find('all')->where(['model_pk' => $entity->id, 'model_database' => $database, 'model_table' => $class]);
 
             $record = $query->first();
 

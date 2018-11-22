@@ -9,6 +9,7 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $model_table
+ * @property string $model_database
  * @property int $model_pk
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $deleted
@@ -30,12 +31,13 @@ class AuditingRecord extends Entity
      * @var array
      */
     protected $_accessible = [
-        'model_table'   => true,
-        'model_pk'      => true,
-        'created'       => true,
-        'deleted'       => true,
-        'created_by'    => true,
-        'updated_by'    => true,
-        'auditing_logs' => true,
+        'model_table'    => true,
+        'model_database' => true,
+        'model_pk'       => true,
+        'created'        => true,
+        'deleted'        => true,
+        'created_by'     => true,
+        'updated_by'     => true,
+        'auditing_logs'  => true,
     ];
 }

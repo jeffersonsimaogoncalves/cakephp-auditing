@@ -45,6 +45,11 @@ class Initial extends AbstractMigration
                 'limit'   => 100,
                 'null'    => false,
             ])
+            ->addColumn('model_database', 'string', [
+                'default' => null,
+                'limit'   => 100,
+                'null'    => false,
+            ])
             ->addColumn('model_pk', 'string', [
                 'default' => null,
                 'limit'   => 50,
