@@ -36,7 +36,7 @@ class AuditingLogsTable extends Table
         $connection = Configure::read('JeffersonSimaoGoncalves/Auditing.connection');
         if (!empty($connection)) {
             return $connection;
-        };
+        }
 
         return parent::defaultConnectionName();
     }
